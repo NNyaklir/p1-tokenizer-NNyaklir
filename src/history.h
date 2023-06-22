@@ -1,5 +1,6 @@
 #ifndef _HISTORY_
 #define _HISTORY_
+#include "stdio.h"
 
 typedef struct s_Item {
   int id;
