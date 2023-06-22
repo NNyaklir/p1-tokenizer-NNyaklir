@@ -1,5 +1,7 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
+#include "stdio.h"
+
 
 
 /* Return true (non-zero) if c is a whitespace characer
