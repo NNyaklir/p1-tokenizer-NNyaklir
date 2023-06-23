@@ -13,10 +13,11 @@ int main(){
         char input[MAX]; //input buffer
         scanf("%s",input);
         printf("Recorded string: %s\n",input);
-        char exitCondition[]= "exit";
-        int exitConditionTrue=strcmp(exitCondition,input);
 
-        if(exitConditionTrue==0){
+
+        char exitCondition[]= "exit";
+
+        if(strcmp(input,exitCondition)==0){
             goto done;      //end program
         }
 
