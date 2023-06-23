@@ -11,8 +11,8 @@ int main(){
         fputs("Enter expression to tokenize. Type \"exit\" to exit\n",stdout); //stdout shows that the output is going to the shell
         fflush(stdout);//fflush immediately flushes the contents of an output stream
         char input[MAX]; //input buffer
-        fgets(input, MAX,stdin);
-        fputs("Returned input recorded: %s\n",input);
+        scanf("%s",input);
+        printf("Recorded string: %s\n",input);
         char exitCondition[]= "exit";
         int exitConditionTrue=strcmp(exitCondition,input);
 
