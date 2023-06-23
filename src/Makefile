@@ -7,6 +7,7 @@ all: tokenizer
 # include file dependencies
 history.o: history.h
 tokenizer.o: history.h
+tester.o: tester.h
 
 # $@=target, $^=prerequisites
 tokenizer: ui.o tester.o 
