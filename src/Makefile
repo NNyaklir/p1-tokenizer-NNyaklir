@@ -8,6 +8,7 @@ all: tokenizer
 history.o: history.h
 tokenizer.o: history.h
 tester.o: tester.h
+ui.o: ui.h
 
 # $@=target, $^=prerequisites
 tokenizer: ui.o tester.o 
