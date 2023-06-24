@@ -70,3 +70,16 @@ int count_tokens(char *str){
     }
     return count;
 }
+
+char *copy_str(char *inStr,short len){
+    int length = count_tokens(*inStr);
+    char outStr[length];
+    char *ptr=outStr; //allocating pointer to first pointer in the string
+
+    while (*inStr!='\0'){
+        *ptr=*inStr; // if I am correct this should copy the value from *inStr to *ptr
+        *inStr++;
+    }
+
+    return outStr; //returns copied string
+}
