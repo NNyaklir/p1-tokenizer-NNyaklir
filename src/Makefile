@@ -17,5 +17,5 @@ tokenizer: ui.o
 clean:
 	rm -f *.o tokenizer
 
-run: runner
-	./runner
+run: tokenizer
+	./tokenizer
