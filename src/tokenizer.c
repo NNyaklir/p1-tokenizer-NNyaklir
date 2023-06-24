@@ -49,3 +49,8 @@ char *token_start(char *str){
         return *str; //if there is a next character this should the pointer to it.
     }
 }
+
+char *token_terminator(char *token){
+    //im not sure what this is even supposed to do
+}
+
