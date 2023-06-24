@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 #include "tokenizer.h"
 #include "history.h"
+
 #define MAX 2048
 
 int main(){
