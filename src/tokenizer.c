@@ -54,3 +54,17 @@ char *token_terminator(char *token){
     //im not sure what this is even supposed to do
 }
 
+int count_tokens(char *str){
+    int count=0;
+    if ( *str='\0'){ //if there is no pointer returns zero
+        return 0;
+    }
+    else{ //this will count all the chars in a string and add it to count
+        count++;
+        while(*str!='\0'){
+            count++;
+            str++;
+        }
+    }
+    return count;
+}
