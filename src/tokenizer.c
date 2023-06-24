@@ -35,7 +35,7 @@ int non_space_char(char c){
 }
 
 char *token_start(char *str){
-    if( str==NULL|| *str=='\0'){ //this checks if the string is empty or the pointer points to nothing
+    if( str==NULL || *str=='\0'){ //this checks if the string is empty or the pointer points to nothing
         return 0;                  // since the str or *str is empty this fufills the return zero condition.
     }
 
@@ -51,7 +51,17 @@ char *token_start(char *str){
 }
 
 char *token_terminator(char *token){
-    //im not sure what this is even supposed to do
+    if( token==NULL || *token=='\0'){ //this checks if the string is empty or the pointer points to nothing
+        return 0;                  // since the str or *str is empty this fufills the return zero condition.
+    }
+
+    int charCheck = space_char(*token);
+    while(charCheck!=1){ //while *token has a non tab non whitespace character, this will incriment
+        *token++;
+    }
+
+    return *token; //in theory this should return a char that has whitespace at the end of a string/word
+
 }
 
 int count_tokens(char *str){
