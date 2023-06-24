@@ -17,6 +17,19 @@ int space_char(char c){
         default:
         return 0;
     }
-    
+}
 
+int non_space_char(char c){
+    switch(c){
+        case ' ':
+        return 0;
+        break;
+
+        case '\t':
+        return 0;
+        break;
+
+        default:
+        return 1;
+    }
 }
