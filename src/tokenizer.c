@@ -39,17 +39,15 @@ char *token_start(char *str){
         return 0;                  // since the str or *str is empty this fufills the return zero condition.
     }
 
-    while (*str != ' '){ //moves the pointer to the end of the word stopping at the whitespace
-        *str++;
-
-        if(*str== '\0'){ //in the case of singular word arrays there will be no next word and thus will return 0
-            return 0;
+    while(*str!=' ' && *str!='\0'){// this will move foward until whitespace or end of string
+        int charCheck= space_char( *str);
+        if(charCheck==1){ //checks if the pointer has a nontab or whitespace entry
+            return *str;
         }
         else{
-            return *str; //if there is a next character this should the pointer to it.
+            *str++; // increments the pointer by one if no character is found.
         }
-    }
-   
+    } 
 }
 
 char *token_terminator(char *token){
