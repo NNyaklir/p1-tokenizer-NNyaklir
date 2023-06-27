@@ -4,32 +4,19 @@
 #include <stdio.h>
 
 int space_char(char c){
-
-    switch (c){
-        case ' ':
+    if(c==' ' || c=='\t' || c=='\n' || c==EOF){
         return 1;
-        break;
-
-        case '\t':
-        return 1;
-        break;
-
-        default:
+    }
+    else{
         return 0;
     }
 }
 
 int non_space_char(char c){
-    switch(c){
-        case ' ':
+    if(c==' ' || c=='\t' || c=='\n' || c==EOF){
         return 0;
-        break;
-
-        case '\t':
-        return 0;
-        break;
-
-        default:
+    }
+    else{
         return 1;
     }
 }
