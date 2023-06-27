@@ -83,8 +83,7 @@ int count_tokens(char *str){ //This actually needs to count the amount of words 
 }
 
 char *copy_str(char *inStr,short len){
-    int length = count_tokens(*inStr);
-    char outStr[length];
+    char outStr[len];
     char *ptr=outStr; //allocating pointer to first pointer in the string
     
     int i=0;
