@@ -64,16 +64,19 @@ char *token_terminator(char *token){
 
 }
 
-int count_tokens(char *str){
+int count_tokens(char *str){ //This actually needs to count the amount of words in a string
     int count=0;
+    char *start = token_start(str);
+    char *end = token_terminator(str);
     if ( *str='\0'){ //if there is no pointer returns zero
         return 0;
     }
-    else{ //this will count all the chars in a string and add it to count
-        count++;
+    else{ //this will count all the words in a string and add it to count
         while(*str!='\0'){
             count++;
-            str++;
+            char *updateStart= *start+*end;
+            *start= token_start(updateStart);
+            *end = token_terminator(updateStart);
         }
     }
     return count;
@@ -83,12 +86,12 @@ char *copy_str(char *inStr,short len){
     int length = count_tokens(*inStr);
     char outStr[length];
     char *ptr=outStr; //allocating pointer to first pointer in the string
-
-    while (*inStr!='\0'){
-        *ptr=*inStr; // if I am correct this should copy the value from *inStr to *ptr
-        *inStr++;
+    
+    int i=0;
+    while (i=0,i<len,i++){
+        *ptr=inStr[i]; // if I am correct this should copy the value from *inStr to *ptr
+        *ptr++;
     }
-
     return outStr; //returns copied string
 }
 
