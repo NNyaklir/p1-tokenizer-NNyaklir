@@ -60,22 +60,33 @@ int count_tokens(char *str){ //This actually needs to count the amount of words 
     else{ //this will count all the words in a string and add it to count
         while(*str!='\0'){
             count++;
-            char *updateStart= *start+*end;
-            *start= token_start(updateStart);
-            *end = token_terminator(updateStart);
+            char *updateStart= *start + *end;
+            start= token_start(updateStart);
+            end = token_terminator(updateStart);
         }
     }
     return count;
 }
 
 char *copy_str(char *inStr,short len){
-    char outStr[len];
-    char *ptr=outStr; //allocating pointer to first pointer in the string
+    int numTokens=count_tokens(inStr);
+    char *outStr = (char*)malloc((len+numTokens)*sizeof(char)); //dynamically allocated array
+    char endToken = token_terminator(token_start(inStr));
+    int counter=0;
     
-    int i=0;
-    while (i=0,i<len,i++){
-        *ptr=inStr[i]; // if I am correct this should copy the value from *inStr to *ptr
-        *ptr++;
+    for (int i = 0; i < len && inStr[i] != 0; i++){
+        if (!space_char(inStr[i])){
+            outStr[counter] = inStr[i];
+            counter++;
+        }
+        else if(&inStr[i] == endToken){
+            outStr[counter] = 0;
+            counter++;
+            endToken = word_terminator(word_start(endToken));
+         }
+        else if(inStr[i] == 0){
+            break;
+        }
     }
     return outStr; //returns copied string
 }
