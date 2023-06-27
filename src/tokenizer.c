@@ -25,10 +25,9 @@ char *token_start(char *str){
     if( str==NULL || *str=='\0'){ //this checks if the string is empty or the pointer points to nothing
         return 0;                  // since the str or *str is empty this fufills the return zero condition.
     }
-
-    while(*str!=' ' && *str!='\0'){// this will move foward until whitespace or end of string
-        int charCheck= space_char( *str);
-        if(charCheck==1){ //checks if the pointer has a nontab or whitespace entry
+    int charCheck = space_char(*str);
+    while(charCheck==1){// this will move foward until whitespace or end of string
+        if(charCheck==0){ //checks if the pointer has a nontab or whitespace entry
             return *str;
         }
         else{
