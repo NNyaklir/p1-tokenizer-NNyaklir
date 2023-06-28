@@ -74,17 +74,17 @@ char *copy_str(char *inStr,short len){
     char endToken = token_terminator(token_start(inStr));
     int counter=0;
     
-    for (int i = 0; i < len && inStr[i] != 0; i++){
-        if (!space_char(inStr[i])){
+    for (int i = 0; i < len && inStr[i] != 0; i++){//iterates through string to be coppied
+        if (!space_char(inStr[i])){//this loop copies the string if there is a non space char in [i]
             outStr[counter] = inStr[i];
             counter++;
         }
-        else if(&inStr[i] == endToken){
+        else if(&inStr[i] == endToken){//this updates the end token if it reaches the end
             outStr[counter] = 0;
             counter++;
-            endToken = word_terminator(word_start(endToken));
+            endToken = token_terminator(token_start(endToken));
          }
-        else if(inStr[i] == 0){
+        else if(inStr[i] == 0){//exit condition
             break;
         }
     }
