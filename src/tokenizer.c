@@ -92,13 +92,21 @@ char *copy_str(char *inStr,short len){
 }
 
 char **tokenize(char *str){
-    int length_str= count_tokens(*str);
-    char *tokens[10]; //an array of pointers to reduce wasted memory
-    //I need a loop that will deconstuct the string into only words
-    while(str != '\0'){ //keeps loop running until the end of the string
-        char *start= token_start(*str);
-        char *end= token_terminator(*str);
-
+    int charCount = 0;
+    for(int i = 0; str[i] != 0; i++){ //to count the number of characters in the string 
+        int charCheck= non_space_char(str[i]);
+        if(charCheck==0){
+            charCount++;
+        }
     }
-
+    char *tokenString = copy_str(str, charCount);
+    int wordCount = count_tokens(str);
+    char **tokens = (char**)malloc((wordCount+1)*sizeof(char*)); //dynamically allocates size for array
+    for(int i = 0; i < wordCount; i++){
+        tokens[i] = tokenString;
+        tokenString = token_terminator(tokenString)+1;
+    }
+    tokens[wordCount] = 0;
+    return tokens;
 }
+
