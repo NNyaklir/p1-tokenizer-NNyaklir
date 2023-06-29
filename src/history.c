@@ -55,3 +55,17 @@ char *get_history(List *list, int id){
     return current->str;
 
 }
+
+void print_history(List *list){
+    if(list->root==NULL){//error throw
+        fputs('Error: no history found', stdout);
+        return;
+    }
+
+    Item *current=list->root;
+    while(current->next!=NULL){
+        printf("id: %n, entry: %s",current->id,current->str);
+        current=current->next;
+    }
+
+}
