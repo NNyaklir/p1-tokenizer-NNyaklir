@@ -41,3 +41,17 @@ void add_history(List *list, char *str){ //char  *str is a pointer to a string
         current->next=newItem;//should make the last item of the linked list the newly added item
     }
 }
+
+char *get_history(List *list, int id){
+    if(list->root==NULL){//error throw
+        fputs('Error: no history found', stdout);
+        return;
+    }
+
+    Item *current=list->root;
+    while (current->id!=id){//traverses list
+        current=current->next;
+    }
+    return current->str;
+
+}
