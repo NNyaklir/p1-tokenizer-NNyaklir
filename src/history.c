@@ -69,3 +69,14 @@ void print_history(List *list){
     }
 
 }
+
+void free_history(List *list){
+
+        Item *rootKiller=list->root;
+    while(rootKiller!=NULL){
+        Item *temp=rootKiller;
+        rootKiller=rootKiller->next;
+        free(temp);
+    }
+
+}
