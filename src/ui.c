@@ -8,9 +8,12 @@
 int main(){
     puts("Initializing Tokenizer\n");
 
+    List *tokenList=init_history();
+
     while(1){//infinite loop for ui to run
 
         fputs("Enter expression to tokenize. Type \"exit\" to exit\n",stdout); //stdout shows that the output is going to the shell
+        printf(">");
         fflush(stdout);//fflush immediately flushes the contents of an output stream
         char input[MAX]; //input buffer
         scanf("%s",input);
