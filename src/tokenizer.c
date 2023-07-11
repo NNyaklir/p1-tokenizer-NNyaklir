@@ -2,6 +2,7 @@
 #include "tokenizer.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
 int space_char(char c){
     if(c==' ' || c=='\t' || c=='\n' || c==EOF){
@@ -28,7 +29,7 @@ char *token_start(char *str){
     int charCheck = space_char(*str);
     while(charCheck==1){// this will move foward until whitespace or end of string
         if(charCheck==0){ //checks if the pointer has a nontab or whitespace entry
-            return *str;
+            return str;
         }
         else{
             *str++; // increments the pointer by one if no character is found.
@@ -46,7 +47,7 @@ char *token_terminator(char *token){
         *token++;
     }
 
-    return *token; //in theory this should return a char that has whitespace at the end of a string/word
+    return token; //in theory this should return a char that has whitespace at the end of a string/word
 
 }
 
@@ -55,12 +56,12 @@ int count_tokens(char *str){ //This actually needs to count the amount of words 
     char *start = token_start(str);
     char *end = token_terminator(str);
     if ( *str='\0'){ //if there is no pointer returns zero
-        return 0;
+        return 0; 
     }
     else{ //this will count all the words in a string and add it to count
         while(*str!='\0'){
             count++;
-            char *updateStart= *start + *end;
+            char *updateStart= *start + end;
             start= token_start(updateStart);
             end = token_terminator(updateStart);
         }
@@ -71,7 +72,7 @@ int count_tokens(char *str){ //This actually needs to count the amount of words 
 char *copy_str(char *inStr,short len){
     int numTokens=count_tokens(inStr);
     char *outStr = (char*)malloc((len+numTokens)*sizeof(char)); //dynamically allocated array
-    char endToken = token_terminator(token_start(inStr));
+    char *endToken = token_terminator(token_start(inStr));
     int counter=0;
     
     for (int i = 0; i < len && inStr[i] != 0; i++){//iterates through string to be coppied

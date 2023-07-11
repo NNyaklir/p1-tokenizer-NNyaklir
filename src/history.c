@@ -3,6 +3,8 @@
 #include "stdio.h"
 #include "history.h"
 #include "stdlib.h"
+#include "tokenizer.h"
+#include <string.h>
 
 List* init_history(){
     List *historyList = malloc(sizeof(List)); //in theory it should dynamically allocate memory for a linked list via pointer
@@ -20,7 +22,7 @@ void add_history(List *list, char *str){ //char  *str is a pointer to a string
         charCount++;
     }
     char *data= (char*)malloc(charCount*sizeof(char));//assignes a memory allocation
-    *data= copy_str(*str,charCount);//copies the strings data for transplant
+    strcpy( data,str);//copies the strings data for transplant
     newItem->str=data;//makes the node's str value match the input string
     newItem->next=NULL;
     //next we need to check if the linked list has a node in it or if it is empty
@@ -44,8 +46,8 @@ void add_history(List *list, char *str){ //char  *str is a pointer to a string
 
 char *get_history(List *list, int id){
     if(list->root==NULL){//error throw
-        fputs('Error: no history found', stdout);
-        return;
+        fputs("Error: no history found", stdout);
+        return NULL;
     }
 
     Item *current=list->root;
@@ -58,7 +60,7 @@ char *get_history(List *list, int id){
 
 void print_history(List *list){
     if(list->root==NULL){//error throw
-        fputs('Error: no history found', stdout);
+        fputs("Error: no history found", stdout);
         return;
     }
 
