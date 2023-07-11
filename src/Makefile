@@ -1,5 +1,5 @@
 #objects
-OBJS = uimain.o tokenizer.o history.o
+OBJS = ui.o tokenizer.o history.o
 
 # compiler flags.  -g for debug, -O3 for optimization
 CFLAGS=-g -O3
