@@ -33,14 +33,14 @@ int main(){
             goto loop;
         }
 
-        else if(strcmp(input,exitCondition)==0){
+        /*else if(strcmp(input,exitCondition)==0){
             free_history(tokenList);
             goto done;      //end program
-        }
-        else{
-            add_history(tokenList,input);
-            goto loop;
-        }
+        }*/
+        //else{
+        //    add_history(tokenList,input);
+        //    goto loop;
+        //}
 
 
     }
