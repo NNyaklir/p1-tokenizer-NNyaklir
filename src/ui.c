@@ -27,6 +27,8 @@ int main(){
         char exitCondition[]= "exit";
         char historyCondition[]= "history";
 
+        add_history(tokenList,input);
+
         if(strcmp(input,historyCondition)==0){
             printf("intializing history");
             print_history(tokenList);
