@@ -26,6 +26,7 @@ int main(){
         char historyCondition[]= "history";
 
         if(strcmp(input,historyCondition)==0){
+            fputs("intializing history");
             print_history(tokenList);
         }
 
