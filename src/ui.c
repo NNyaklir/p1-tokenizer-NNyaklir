@@ -12,6 +12,8 @@ int main(){
 
     while(1){//infinite loop for ui to run
 
+        loop:
+
         fputs("Enter expression to tokenize. Type \"exit\" to exit\n",stdout); //stdout shows that the output is going to the shell
         printf(">");
         fflush(stdout);//fflush immediately flushes the contents of an output stream
@@ -28,6 +30,7 @@ int main(){
         if(strcmp(input,historyCondition)==0){
             printf("intializing history");
             print_history(tokenList);
+            goto loop;
         }
 
         else if(strcmp(input,exitCondition)==0){
@@ -36,6 +39,7 @@ int main(){
         }
         else{
             add_history(tokenList,input);
+            goto loop;
         }
 
 
