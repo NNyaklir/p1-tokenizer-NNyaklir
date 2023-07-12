@@ -27,7 +27,8 @@ int main(){
         char exitCondition[]= "exit";
         char historyCondition[]= "history";
 
-        add_history(tokenList,input);
+        add_history(tokenList,input);//add history breaks my progream after two entries, but porque ah
+        //i give up
 
         if(strcmp(input,historyCondition)==0){
             printf("intializing history");
