@@ -16,20 +16,32 @@ int main(){
         printf(">");
         fflush(stdout);//fflush immediately flushes the contents of an output stream
         char input[MAX]; //input buffer
+
         scanf("%s",input);
+
         printf("Recorded string: %s\n",input);
 
 
         char exitCondition[]= "exit";
+        char historyCondition[]= "history";
 
-        if(strcmp(input,exitCondition)==0){
+        if(strcmp(input,historyCondition)==0){
+            print_history(tokenList);
+        }
+
+        else if(strcmp(input,exitCondition)==0){
+            free_history(tokenList);
             goto done;      //end program
+        }
+        else{
+            add_history(tokenList,input);
         }
 
 
     }
 
     done:       //exits program
+        printf("program killed");
         return 0;
 
 }
